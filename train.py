@@ -61,7 +61,7 @@ def validate(
     for images, labels in tqdm(loader, desc="  Val  ", leave=False):
         images, labels = images.to(device), labels.to(device)
 
-        outputs = model(input_tensor)
+        outputs = model(images)
         loss = criterion(outputs, labels)
 
         running_loss += loss.item() * images.size(0)
